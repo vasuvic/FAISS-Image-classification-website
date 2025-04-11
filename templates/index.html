@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Herb Classifier</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .no-bullets {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Traditional Herb Image Classifier</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Classify</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2> Prediction: {{ prediction }}</h2>
+                <h3>Top 3 Closest Matches:</h3>
+                <ul class="no-bullets">
+                    {% for label, _ in top_matches %}
+                        <li>{{ label }}</li>
+                    {% endfor %}
+                </ul>
+                {% if image_url %}
+                    <img src="{{ image_url }}" alt="Uploaded Image" style="max-width:300px; margin-top:20px;">
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Herb Classifier</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Traditional Herb Image Classifier</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Classify</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>Prediction: {{ prediction }}</h2>
+                <h3>Top 3 Matches:</h3>
+                <ul>
+                    {% for label, _ in top_matches %}
+                        <li>{{ label }}</li>
+                    {% endfor %}
+                </ul>
+                {% if image_url %}
+                    <img src="{{ image_url }}" alt="Uploaded Image" style="max-width:300px; margin-top:20px;">
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Herb Classifier</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1> Traditional Herb Image Classifier</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Classify</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>✅ Prediction: {{ prediction }}</h2>
+                <h3>Top 3 Matches:</h3>
+                <ul>
+                    {% for label, dist in top_matches %}
+                        <li>{{ label }} — Distance: {{ "%.2f"|format(dist) }}</li>
+                    {% endfor %}
+                </ul>
+                {% if image_url %}
+                    <img src="{{ image_url }}" alt="Uploaded Image" style="max-width:300px; margin-top:20px;">
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html> -->
+
+
+
+
